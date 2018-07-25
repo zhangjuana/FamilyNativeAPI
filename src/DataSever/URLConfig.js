@@ -31,6 +31,6 @@ export {
     AddCommentURL,
     SearchGoodsTypeURL,
     SearchProductURL,
-    SearchProductURL,
+    SearchByIDURL,
     imageBaseURL,
 }
