@@ -13,7 +13,7 @@ const UpdateOrderMainURL = host+port+'api/OrderMain/Update';
 const AddCommentURL = host+port+'api/Comment/Add';
 const SearchGoodsTypeURL = host+port+'api/GoodsType/Search';
 const SearchProductURL = host+port+'api/Product/Search';
-const SearchProductURL = host+port+'api/Product/Search';
+const SearchByIDURL = host+port+'api/Product/SearchByID';
 
 const imageBaseURL = host+port+'/resource/image/';
 
