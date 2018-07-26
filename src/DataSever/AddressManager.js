@@ -24,8 +24,8 @@ class AddressManager{
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json',
-                 uid=localStorage.uid,
-                 token=localStorage.token
+                'uid':localStorage.uid,
+                'token':localStorage.token
             },
             body: JSON.stringify(Address)
         });
@@ -56,8 +56,8 @@ class AddressManager{
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json',
-                 token:localStorage.token,
-                 uid=localStorage.uid
+                'uid':localStorage.uid,
+                'token':localStorage.token
             },
             body: JSON.stringify(Address)
         });
@@ -85,8 +85,8 @@ class AddressManager{
                 headers:{
                     'Accept':'application/json',
                     'Content-Type':'application/json',
-                    token:localStorage.token,
-                    uid=localStorage.uid
+                    'uid':localStorage.uid,
+                    'token':localStorage.token
                 },
                 body: JSON.stringify(Address)
             });
@@ -112,8 +112,8 @@ class AddressManager{
                     headers:{
                         'Accept':'application/json',
                         'Content-Type':'application/json',
-                        token:localStorage.token,
-                        uid:localStorage.uid,
+                        'uid':localStorage.uid,
+                        'token':localStorage.token
                     },
                     body: JSON.stringify(Address)
                 });

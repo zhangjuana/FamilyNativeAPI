@@ -8,8 +8,8 @@ class ProductManager{
                 headers:{
                     'Accept':'application/json',
                     'Content-Type':'application/json',
-                     uid=localStorage.uid,
-                     token=localStorage.token
+                     'uid':localStorage.uid,
+                     'token':localStorage.token
                 },
                 body:JSON.stringify(id)
             })
@@ -30,8 +30,8 @@ class ProductManager{
                 headers:{
                     'Accept':'application/json',
                     'Content-Type':'application/json',
-                     uid=localStorage.uid,
-                     token=localStorage.token
+                     'uid':localStorage.uid,
+                     'token':localStorage.token
                 },
                 body:JSON.stringify(GoodsTypeID)
             })
@@ -52,8 +52,8 @@ class ProductManager{
                 headers:{
                     'Accept':'application/json',
                     'Content-Type':'application/json',
-                     uid=localStorage.uid,
-                     token=localStorage.token
+                    'uid':localStorage.uid,
+                    'token':localStorage.token
                 },
                 body:JSON.stringify()
             })

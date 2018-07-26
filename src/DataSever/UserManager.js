@@ -21,7 +21,7 @@ class UserManager {
             })
             const result = await res.json();
             if (result.success === true) {
-                localStorage.access_token = result.data.access_token;
+                localStorage.token = result.data.token;
             }
             return result;
         } catch (error) {
@@ -49,7 +49,7 @@ class UserManager {
 
             const result = await res.json();
             if (result.success === true) {
-                localStorage.access_token = result.data.access_token;
+                localStorage.token = result.data.token;
             }
             return result;
         } catch (error) {
@@ -63,7 +63,7 @@ class UserManager {
         localStorage.access_token = '';
     }
     isLogin() {
-        if (localStorage.access_token === '' || !localStorage.access_token) {
+        if (localStorage.token === '' || !localStorage.token) {
             return false;
         } else {
             return true;
@@ -71,7 +71,7 @@ class UserManager {
     }
     async UpdateCustomer(userInfo) {
         try {
-            const access_token = localStorage.access_token;
+            const token = localStorage.token;
             const formData = new FormData();
             formData.append("accexx_token", access_token);
             if (userInfo.name) {

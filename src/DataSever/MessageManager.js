@@ -17,8 +17,8 @@ async AddComment(image,OrderMainID,ProductID,CustomerID,CommentContent){
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json',
-                 uid=localStorage.uid,
-                 token=localStorage.token
+                'uid':localStorage.uid,
+                'token':localStorage.token
             },
         });
         const result=await res.json();

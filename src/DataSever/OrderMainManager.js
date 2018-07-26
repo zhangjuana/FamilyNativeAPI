@@ -11,8 +11,8 @@ class OrderMainManager{
                 headers:{
                     'Accept':'application/json',
                     'Content-Type':'application/json',
-                     uid=localStorage.uid,
-                     token=localStorage.token
+                    'uid':localStorage.uid,
+                    'token':localStorage.token
                 },
                 body:JSON.stringify(orderInForm)
             })
@@ -33,8 +33,8 @@ class OrderMainManager{
                 headers:{
                     'Accept':'application/json',
                     'Content-Type':'application/json',
-                     uid=localStorage.uid,
-                     token=localStorage.token
+                    'uid':localStorage.uid,
+                    'token':localStorage.token
                 },
                 body:JSON.stringify()
             })
@@ -58,8 +58,8 @@ class OrderMainManager{
                 headers:{
                     'Accept':'application/json',
                     'Content-Type':'application/json',
-                     uid=localStorage.uid,
-                     token=localStorage.token
+                    'uid':localStorage.uid,
+                    'token':localStorage.token
                 },
                 body:JSON.stringify(CollectProduct)
             })
