@@ -17,7 +17,7 @@ export default class RegisterScreen extends Component {
     
       this.state = {
          Phone:'',
-         password:''
+         pwd:''
       }
     }
     
@@ -42,8 +42,8 @@ export default class RegisterScreen extends Component {
             </InputItem>
             <InputItem
                 type={'password'}
-                value={this.state.password}
-                onChange={(password)=>{this.setState({password})}}
+                value={this.state.pwd}
+                onChange={(pwd)=>{this.setState({pwd})}}
                 placeholder={"请输入密码"}
             >
             密码
@@ -54,7 +54,7 @@ export default class RegisterScreen extends Component {
             <Button
                 type={'primary'}
                 onClick={async()=>{
-                    const result=await userManager.register(this.state.Phone,this.state.password);
+                    const result=await userManager.register(this.state.Phone,this.state.pwd);
                     console.log(result);
                     if(result.success===false)
                     {

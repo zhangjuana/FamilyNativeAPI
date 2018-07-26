@@ -5,10 +5,10 @@ import {
 } from './URLConfig';
 
 class UserManager {
-    async login(name, pwd) {
+    async login(Phone, pwd) {
         try {
             const user = {
-                name,
+                Phone,
                 pwd
             }
             const res = await fetch(loginURL, {
@@ -31,10 +31,10 @@ class UserManager {
             }
         }
     }
-    async register(name, pwd) {
+    async register(Phone, pwd) {
         try {
             const user = {
-                name,
+                Phone,
                 pwd
             }
             console.log(user);

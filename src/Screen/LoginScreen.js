@@ -14,8 +14,8 @@ export default class LoginScreen extends Component {
       super(props)
     
       this.state = {
-         username:'',
-         password:''
+        Phone:'',
+        pwd:''
       }
     }
     
@@ -31,16 +31,16 @@ export default class LoginScreen extends Component {
         <List>
             <InputItem
                 type={'text'}
-                value={this.state.username}
-                onChange={(username)=>{this.setState({username})}}
+                value={this.state.Phone}
+                onChange={(Phone)=>{this.setState({Phone})}}
                 placeholder={"请输入用户名"}
             >
             用户名
             </InputItem>
             <InputItem
                 type={'password'}
-                value={this.state.password}
-                onChange={(password)=>{this.setState({password})}}
+                value={this.state.pwd}
+                onChange={(pwd)=>{this.setState({pwd})}}
                 placeholder={"请输入密码"}
             >
             密码
@@ -51,7 +51,7 @@ export default class LoginScreen extends Component {
             <Button
                 type={'primary'}
                 onClick={async()=>{
-                    const result=await userManager.login(this.state.username,this.state.password);
+                    const result=await userManager.login(this.state.Phone,this.state.pwd);
                     console.log(result);
                     if(result.success===false)
                     {
