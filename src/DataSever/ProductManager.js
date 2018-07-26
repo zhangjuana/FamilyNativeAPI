@@ -6,8 +6,10 @@ class ProductManager{
             const res=await fetch(SearchByIDURL,{
                 method:"post",
                 headers:{
-                    'Accpet':'application/json',
-                    'Content-Type':'application/json'
+                    'Accept':'application/json',
+                    'Content-Type':'application/json',
+                     uid=localStorage.uid,
+                     token=localStorage.token
                 },
                 body:JSON.stringify(id)
             })
@@ -26,8 +28,10 @@ class ProductManager{
             const res=await fetch(SearchProductURL,{
                 method:"post",
                 headers:{
-                    'Accpet':'application/json',
-                    'Content-Type':'application/json'
+                    'Accept':'application/json',
+                    'Content-Type':'application/json',
+                     uid=localStorage.uid,
+                     token=localStorage.token
                 },
                 body:JSON.stringify(GoodsTypeID)
             })
@@ -46,8 +50,10 @@ class ProductManager{
             const res=await fetch(SearchProductURL,{
                 method:"post",
                 headers:{
-                    'Accpet':'application/json',
-                    'Content-Type':'application/json'
+                    'Accept':'application/json',
+                    'Content-Type':'application/json',
+                     uid=localStorage.uid,
+                     token=localStorage.token
                 },
                 body:JSON.stringify()
             })

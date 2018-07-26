@@ -10,6 +10,7 @@ class AddressManager{
     try {
         const Address={
             token:localStorage.token,
+            uid:localStorage.uid,
             CustomerID,
             Addressee,
             Phone,
@@ -22,7 +23,9 @@ class AddressManager{
             method:'POST',
             headers:{
                 'Accept':'application/json',
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                 uid=localStorage.uid,
+                 token=localStorage.token
             },
             body: JSON.stringify(Address)
         });
@@ -40,7 +43,6 @@ class AddressManager{
  async UpadteAddress(CustomerID,Addressee,Phone,SaveCode,CityCode,AreaCode,Addresss){
     try {
         const Address={
-            token:localStorage.token,
             CustomerID,
             Addressee,
             Phone,
@@ -53,7 +55,9 @@ class AddressManager{
             method:'POST',
             headers:{
                 'Accept':'application/json',
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                 token:localStorage.token,
+                 uid=localStorage.uid
             },
             body: JSON.stringify(Address)
         });
@@ -80,7 +84,9 @@ class AddressManager{
                 method:'POST',
                 headers:{
                     'Accept':'application/json',
-                    'Content-Type':'application/json'
+                    'Content-Type':'application/json',
+                    token:localStorage.token,
+                    uid=localStorage.uid
                 },
                 body: JSON.stringify(Address)
             });
@@ -105,7 +111,9 @@ class AddressManager{
                     method:'POST',
                     headers:{
                         'Accept':'application/json',
-                        'Content-Type':'application/json'
+                        'Content-Type':'application/json',
+                        token:localStorage.token,
+                        uid:localStorage.uid,
                     },
                     body: JSON.stringify(Address)
                 });

@@ -9,8 +9,10 @@ class OrderMainManager{
             const res=await fetch(AddOrderMainURL,{
                 method:"post",
                 headers:{
-                    'Accpet':'application/json',
-                    'Content-Type':'application/json'
+                    'Accept':'application/json',
+                    'Content-Type':'application/json',
+                     uid=localStorage.uid,
+                     token=localStorage.token
                 },
                 body:JSON.stringify(orderInForm)
             })
@@ -29,8 +31,10 @@ class OrderMainManager{
             const res=await fetch(SearchOrderURL,{
                 method:"post",
                 headers:{
-                    'Accpet':'application/json',
-                    'Content-Type':'application/json'
+                    'Accept':'application/json',
+                    'Content-Type':'application/json',
+                     uid=localStorage.uid,
+                     token=localStorage.token
                 },
                 body:JSON.stringify()
             })
@@ -52,8 +56,10 @@ class OrderMainManager{
             const res=await fetch(UpdateOrderMainURL,{
                 method:"post",
                 headers:{
-                    'Accpet':'application/json',
-                    'Content-Type':'application/json'
+                    'Accept':'application/json',
+                    'Content-Type':'application/json',
+                     uid=localStorage.uid,
+                     token=localStorage.token
                 },
                 body:JSON.stringify(CollectProduct)
             })

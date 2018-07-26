@@ -13,7 +13,13 @@ async AddComment(image,OrderMainID,ProductID,CustomerID,CommentContent){
         formData.append("CommentContent",CommentContent);
         const res=await fetch(AddCommentURL,{
             method:'POST',
-            body:formData
+            body:formData,
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json',
+                 uid=localStorage.uid,
+                 token=localStorage.token
+            },
         });
         const result=await res.json();
         console.log(result);
