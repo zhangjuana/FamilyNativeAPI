@@ -1,25 +1,28 @@
 import {
     loginURL,
-    registerURL,
+    registURL,
     UpdateCustomerURL
 } from './URLConfig';
 
 class UserManager {
     async login(Phone, pwd) {
         try {
-            const user = {
+            const Customer = {
                 Phone,
                 pwd
             }
+            console.log(Customer);
+            console.log(loginURL);
             const res = await fetch(loginURL, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(Customer)
             })
             const result = await res.json();
+            console.log(result);
             if (result.success === true) {
                 localStorage.token = result.data.token;
             }
@@ -33,18 +36,18 @@ class UserManager {
     }
     async register(Phone, pwd) {
         try {
-            const user = {
+            const Customer = {
                 Phone,
                 pwd
             }
-            console.log(user);
-            const res = await fetch(registerURL, {
+            console.log(Customer);
+            const res = await fetch(registURL, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(Customer)
             });
 
             const result = await res.json();
@@ -60,7 +63,7 @@ class UserManager {
         }
     }
     logout() {
-        localStorage.access_token = '';
+        localStorage.token = '';
     }
     isLogin() {
         if (localStorage.token === '' || !localStorage.token) {
@@ -73,7 +76,7 @@ class UserManager {
         try {
             const token = localStorage.token;
             const formData = new FormData();
-            formData.append("accexx_token", access_token);
+            formData.append("token",token);
             if (userInfo.name) {
                 formData.append("name", userInfo.name);
             }

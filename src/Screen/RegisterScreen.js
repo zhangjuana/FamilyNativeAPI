@@ -10,7 +10,7 @@ import {
     Icon,
     Toast
 } from 'antd-mobile';
-import userManager from "../DataServer/UserManager";
+import userManager from "../DataSever/UserManager";
 export default class RegisterScreen extends Component {
     constructor(props) {
       super(props)
