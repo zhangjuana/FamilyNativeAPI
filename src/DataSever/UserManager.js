@@ -72,20 +72,22 @@ class UserManager {
             return true;
         }
     }
-    async UpdateCustomer(userInfo) {
+    async UpdateCustomer(nickname,files) {
         try {
-            const token = localStorage.token;
             const formData = new FormData();
-            formData.append("token",token);
-            if (userInfo.name) {
-                formData.append("name", userInfo.name);
+            if (nickname) {
+                formData.append("NickName", nickname);
             }
-            if (userInfo.headimg) {
-                formData.append("headimg", userInfo.image.headimg);
+            if (files) {
+                formData.append("HeadImg", files[0]);
             }
             const res = await fetch(UpdateCustomerURL, {
                 method: 'POST',
-                body: formData
+                body: formData,
+                headers:{
+                    'token':localStorage.token,
+                    'uid':localStorage.uid
+                }
             });
             const result = res.json();
             console.log(result);
