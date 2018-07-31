@@ -99,5 +99,31 @@ class UserManager {
             }
         }
     }
+
+    async ChangePassword(Pwd,newPwd){
+        try {
+            const formData = new FormData();
+            if (Pwd) {
+                formData.append("Pwd", newPwd);
+            }
+        
+            const res = await fetch(changePasswordURL, {
+                method: 'POST',
+                body: formData,
+                headers:{
+                    'token':localStorage.token,
+                    'uid':localStorage.uid
+                }
+            });
+            const result = res.json();
+            console.log(result);
+            return result;
+        } catch (error) {
+            return {
+                success: false,
+                errorMessage: '网络错误'
+            }
+        }
+    }
 }
 export default new UserManager()
