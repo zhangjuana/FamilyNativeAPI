@@ -91,9 +91,9 @@ class UserManager {
                     'uid':localStorage.uid
                 }
             });
-            // const result = res.json();
-            console.log(res);
-            return res;
+            const result = res.json();
+            console.log(result);
+            return result;
         } catch (error) {
             return {
                 success: false,

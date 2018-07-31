@@ -19,24 +19,20 @@ const Item = List.Item;
 const Brief = List.Brief;
 const data = [
     {
-        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+        icon: 'http://localhost:46560/HeadImg/c.png',
         text: '待付款'
     },
     {
-        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+        icon: 'http://localhost:46560/HeadImg/b.png',
         text: '待发货'
     },
     {
-        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+        icon: 'http://localhost:46560/HeadImg/a.png',
         text: '待收货'
     },
     {
-        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+        icon: 'http://localhost:46560/HeadImg/d.png',
         text: '待评价'
-    },
-    {
-        icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-        text: '退款/售后'
     },
 ]
 export default class PersonScreen extends Component {
@@ -96,7 +92,7 @@ export default class PersonScreen extends Component {
                 <List >
                     <Item extra="查看所有订单" arrow="horizontal" onClick={() => { }}>我的订单</Item>
                     <Item>
-                        <Grid data={data} hasLine={false} columnNum={5} itemStyle={{ height: '100px' }} />
+                        <Grid data={data} hasLine={false} columnNum={4} itemStyle={{ height: '100px' }} />
                     </Item>
                 </List>
                 <WhiteSpace />
