@@ -16,7 +16,7 @@ import UserManager from '../DataSever/UserManager';
 
 
 
-export default class UpdatePassWordScreen extends Component {
+export default class UpdatePassWord extends Component {
 
 
     constructor(props) {
