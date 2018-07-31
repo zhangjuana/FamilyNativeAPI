@@ -99,5 +99,31 @@ class UserManager {
             }
         }
     }
+    async SearchCustomer() {
+        try {
+            const token=localStorage.token;
+            const uid= localStorage.uid;
+            const user={
+                uid,
+                token
+            }
+            const res = await fetch(SearchCustomerURL, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    token,
+                    uid
+                },
+            });
+            const result = await res.json();
+            return result;
+        } catch (error) {
+            return {
+                success: false,
+                errorMessage: '网络错误'
+            }
+        }
+    }
 }
 export default new UserManager()

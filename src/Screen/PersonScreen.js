@@ -12,33 +12,57 @@ import {
     Grid,
 } from 'antd-mobile';
 
-import { imageBaseURL } from '../DataSever/URLConfig';
+import { imageBaseURL,SearchCustomer } from '../DataSever/URLConfig';
+import UserManager from '../DataSever/UserManager';
 
 const Item = List.Item;
 const Brief = List.Brief;
 const data = [
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-        text: '蔬菜'
+        text: '待付款'
     },
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-        text: '水果'
+        text: '待发货'
     },
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-        text: '蔬菜'
+        text: '待收货'
     },
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-        text: '水果'
+        text: '待评价'
     },
     {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-        text: '水果'
+        text: '退款/售后'
     },
 ]
 export default class PersonScreen extends Component {
+
+    async componentDidMount(){
+        const result=await UserManager.SearchCustomer();
+        if(result.success===false){
+            Toast.fail(result.errorMessage,1);
+            console.log(2);
+            return;
+        }
+        const User=result.User[0];
+        console.log(User);
+        this.setState({nickname:result.NickName,image:result.HeadImg,name:User.Name})
+        
+    }
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         nickname:'',
+         image:'',
+         name:'',
+      }
+    }
+    
 
     render() {
         return (
@@ -50,12 +74,12 @@ export default class PersonScreen extends Component {
                 >
                     <img
                         alt={''}
-                        // src={imageBaseURL + this.state.user.image}
+                         src={imageBaseURL + this.state.image}
                         style={{ width: '100px', height: '100px', margin: '5px' }}
                     />
                     <div>
-                        <span style={{ display: 'block', fontSize: '30px' }}>用户名</span>
-                        <span style={{ display: 'block', fontSize: '20px' }}>ID</span>
+                        <span style={{ display: 'block', fontSize: '30px' }}>{this.state.nickname}</span>
+                        <span style={{ display: 'block', fontSize: '20px' }}>{this.state.name}</span>
                     </div>
                 </Flex>
                 <WhiteSpace />
