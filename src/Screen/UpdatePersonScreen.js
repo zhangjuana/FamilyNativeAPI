@@ -7,7 +7,8 @@ import {
     WhiteSpace,
     List,
     InputItem,
-    Flex
+    Flex,
+    Icon,
 } from 'antd-mobile';
 import userManager from '../DataSever/UserManager';
 // import personManager from '../DataSever/PersonManager';
@@ -40,6 +41,8 @@ export default class UpdatePersonScreen extends Component {
             <div>
                 <NavBar
                     mode="dark"
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => { this.props.history.goBack() }}
                 >个人信息</NavBar>
                 {/* <Flex
                     justify={'center'}
@@ -64,6 +67,9 @@ export default class UpdatePersonScreen extends Component {
                     </Button>
                     <WhiteSpace />
                     <Button
+                        onClick={()=>{
+                            this.props.history.push('UpdatePassword');
+                        }}
                     >
                         修改密码
                     </Button>

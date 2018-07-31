@@ -26,7 +26,7 @@ export default class LoginScreen extends Component {
                     mode="dark"
                 >
                     登录
-        </NavBar>
+                </NavBar>
                 <List>
                     <InputItem
                         type={'text'}
@@ -35,7 +35,7 @@ export default class LoginScreen extends Component {
                         placeholder={"请输入用户名"}
                     >
                         用户名
-            </InputItem>
+                    </InputItem>
                     <InputItem
                         type={'password'}
                         value={this.state.pwd}
@@ -43,7 +43,7 @@ export default class LoginScreen extends Component {
                         placeholder={"请输入密码"}
                     >
                         密码
-            </InputItem>
+                     </InputItem>
                 </List>
                 <WhiteSpace />
                 <WingBlank>
@@ -56,10 +56,11 @@ export default class LoginScreen extends Component {
                                 Toast.fail(result.errorMessage);
                                 return;
                             }
+                            this.props.history.push('PersonScreen');
                         }}
                     >
                         登录
-            </Button>
+                    </Button>
                     <WhiteSpace />
                     <Button
                         type={'primary'}
@@ -68,7 +69,7 @@ export default class LoginScreen extends Component {
                         }}
                     >
                         注册
-            </Button>
+                     </Button>
                 </WingBlank>
             </div>
         )

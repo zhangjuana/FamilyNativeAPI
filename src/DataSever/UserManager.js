@@ -80,19 +80,19 @@ class UserManager {
                 formData.append("NickName", nickname);
             }
             if (files) {
-                formData.append("HeadImg", files[0]);
+                formData.append("HeadImg", files.file);
             }
             const res = await fetch(UpdateCustomerURL, {
-                method: 'POST',
+                method: 'PUT',
                 body: formData,
                 headers:{
                     'token':localStorage.token,
                     'uid':localStorage.uid
                 }
             });
-            const result = res.json();
-            console.log(result);
-            return result;
+            // const result = res.json();
+            console.log(res);
+            return res;
         } catch (error) {
             return {
                 success: false,
