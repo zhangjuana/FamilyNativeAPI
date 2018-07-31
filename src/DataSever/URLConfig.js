@@ -18,6 +18,12 @@ const BarSearchURL = host+port+'/api/Bar/Search';
 const SpecialSearchURL = host+port+'/api/Special/Search';
 const HotSaleSearchURL = host+port+'/api/HotSale/Search';
 
+const AddTrollerURL = host+port+'/api/Trolley/Add';
+const UpdateTroller = host+port+'/api/Trolley/Update';
+const DeleteTroller = host+port+'/api/Trolley/Delete';
+const SearchTroller = host+port+'/api/Trolley/Search';
+
+
 
 const imageBaseURL = host+port+'/resource/image/';
 
@@ -39,5 +45,9 @@ export {
     imageBaseURL,
     BarSearchURL,
     SpecialSearchURL,
-    HotSaleSearchURL
+    HotSaleSearchURL,
+    AddTrollerURL,
+    UpdateTroller,
+    DeleteTroller,
+    SearchTroller
 }
