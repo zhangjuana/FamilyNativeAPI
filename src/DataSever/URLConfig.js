@@ -24,7 +24,16 @@ const UpdateTroller = host+port+'/api/Trolley/Update';
 const DeleteTroller = host+port+'/api/Trolley/Delete';
 const SearchTroller = host+port+'/api/Trolley/Search';
 
-
+//查询已下单未发货的订单
+const GetNoPayOrderURL = host+port+'/api/PersonInfo/GetNoPayOrder';
+//查询已付款的订单
+const GetNoSendURL = host+port+'/api/PersonInfo/GetNoSendOrder';
+//查询已发货的订单
+const GetNoCollectURL = host+port+'/api/PersonInfo/GetNoCollectOrder';
+//查询已收货的订单
+const GetCollectOrderURL = host+port+'/api/PersonInfo/GetCollectOrder';
+//查询所有的订单
+const GetAllOrderURL = host+port+'/api/PersonInfo/GetAllOrder';
 
 const imageBaseURL =host+port+'/HeadImg/';
 
