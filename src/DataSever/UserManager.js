@@ -3,6 +3,7 @@ import {
     registURL,
     UpdateCustomerURL,
     SearchCustomerURL,
+    ChangePasswordURL
 } from './URLConfig';
 
 class UserManager {
@@ -102,6 +103,7 @@ class UserManager {
     }
     async SearchCustomer() {
         try {
+            const formData = new FormData();
             const token=localStorage.token;
             const uid= localStorage.uid;
             const user={
@@ -110,12 +112,37 @@ class UserManager {
             }
             const res = await fetch(SearchCustomerURL, {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    token,
-                    uid
-                },
+                body: formData,
+                headers:{
+                    'token':localStorage.token,
+                    'uid':localStorage.uid
+                }
+            });
+            const result = res.json();
+            console.log(result);
+            return result;
+        } catch (error) {
+            return {
+                success: false,
+                errorMessage: '网络错误'
+            }
+        }
+    }
+
+    async ChangePassword(Pwd,newPwd){
+        try {
+            const formData = new FormData();
+            if (Pwd) {
+                formData.append("Pwd", newPwd);
+            }
+        
+            const res = await fetch(ChangePasswordURL, {
+                method: 'Put',
+                body: formData,
+                headers:{
+                    'token':localStorage.token,
+                    'uid':localStorage.uid
+                }
             });
             const result = await res.json();
             return result;

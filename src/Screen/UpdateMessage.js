@@ -1,46 +1,46 @@
 import React, { Component } from 'react'
 
 import {
-  NavBar,
-  List,
-  InputItem,
-  WhiteSpace,
-  WingBlank,
-  Button,
-  Toast,
-  ImagePicker,
-  Icon
+    NavBar,
+    List,
+    InputItem,
+    WhiteSpace,
+    WingBlank,
+    Button,
+    Toast,
+    ImagePicker,
+    Icon
 } from 'antd-mobile';
 import userManager from '../DataSever/UserManager';
 export default class UpdateMessage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      nickname: '',
-      files: []
+    constructor(props){
+        super(props)
+        this.state ={
+            nickname:'',
+            files:[]
+        }
     }
-  }
   render() {
     return (
       <div>
         <NavBar
           mode="dark"
-          icon={<Icon type="left" />}
-          onLeftClick={() => { this.props.history.goBack() }}
+          icon={<Icon type="left"/>}
+          onLeftClick={()=>{this.props.history.goBack()}}
         >
           修改用户信息
         </NavBar>
         <ImagePicker
           files={this.state.files}
-          onChange={(files) => { this.setState({ files }) }}
-          selectable={this.state.files.length < 1}
+          onChange={(files)=>{this.setState(files)}}
+          selectable={this.state.files.length<1}
         />
-        <WhiteSpace />
+        <WhiteSpace/>
         <List>
           <InputItem
             type={"text"}
             value={this.state.nickname}
-            onChange={(nickname) => { this.setState({ nickname }) }}
+            onChange={(nickname)=>{this.setState({nickname})}}
             placeholder={"请输入昵称"}
           >
             昵称

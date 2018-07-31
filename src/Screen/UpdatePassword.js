@@ -1,70 +1,81 @@
 import React, { Component } from 'react'
-import {
-    NavBar,
-    List,
-    InputItem,
-    WhiteSpace,
-    WingBlank,
+
+import { 
     Button,
     Toast,
+    NavBar,
+    WingBlank, 
+    WhiteSpace ,
+    List,
+    InputItem,
+    Icon,
+    Modal
+} from 'antd-mobile';
 
-} from 'antd-mobile'
+import UserManager from '../DataSever/UserManager';
 
-import userManager from '../DataSever/UserManager';
 
-export default class UpdateMessage extends Component {
-    constructor(props){
-        super(props)
-        this.state ={
-            nickname:'',
-            files:[]
-        }
+
+export default class UpdatePassWord extends Component {
+
+
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+        Pwd:'',
+        newPwd:''
+      }
     }
+    
+
   render() {
     return (
       <div>
         <NavBar
-          mode="dark"
-          icon={<Icon type="left"/>}
-          onLeftClick={()=>{this.props.history.goBack()}}
-        >
-          修改用户信息
-        </NavBar>
-        <ImagePicker
-          files={this.state.files}
-          onChange={(files)=>{this.setState(files)}}
-          selectable={this.state.files.length<1}
-        />
+            mode="dark"
+            icon={<Icon type="left" />}
+            onLeftClick={() => {this.props.history.goBack()}}
+        >修改密码</NavBar>
         <WhiteSpace/>
         <List>
-          <InputItem
-            type={"text"}
-            value={this.state.nickname}
-            onChange={(nickname)=>{this.setState({nickname})}}
-            placeholder={"请输入昵称"}
-          >
-            昵称
-          </InputItem>
+            <InputItem
+                type={'text'}
+                value={this.state.Pwd}
+                onChange={(Pwd)=>{this.setState({Pwd})}}
+                placeholder={'请输入旧密码'}
+            >
+                旧密码
+            </InputItem>
+            <InputItem
+                type={'text'}
+                value={this.state.newPwd}
+                onChange={(newPwd)=>{this.setState({newPwd})}}
+                placeholder={'请输入新密码'}
+            >
+                新密码
+            </InputItem>
         </List>
         <WhiteSpace/>
         <WingBlank>
-          <Button
-          type={"primary"}
-          onClick={async()=>{
-            if(this.state.files.length===0){
-              Toast.fail("请选择头像",1);
-              return;
-            }
-            const result=await userManager.UpdateCustomer(this.state.nickname,this.state.files);
-            if(result.success===false){
-              Toast.fail(result.errorMeaage);
-              return;
-            }
-            this.props.history.relace('UpdatePersonScreen');
-          }}
-          >
-          提交修改
-          </Button>
+            <Button
+                type={'primary'}
+                onClick={async()=>{
+                    const result = await UserManager.ChangePassword(this.state.Pwd,this.state.newPwd);
+                    console.log(result);
+                    if(result.success === false){
+                        Toast.fail(result.errorMessage);
+                        return;
+                    }
+                    Modal.alert('修改成功','点击确认键返回',[{
+                        text:'确认',
+                        onPress:()=>{this.props.history.goBack()}
+                    }])
+                    
+                }}
+            >
+                提交修改
+            </Button>
         </WingBlank>
       </div>
     )
