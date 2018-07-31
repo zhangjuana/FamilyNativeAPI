@@ -1,7 +1,8 @@
 import {
     loginURL,
     registURL,
-    UpdateCustomerURL
+    UpdateCustomerURL,
+    SearchCustomerURL,
 } from './URLConfig';
 
 class UserManager {
