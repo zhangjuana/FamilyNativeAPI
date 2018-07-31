@@ -32,7 +32,7 @@ export default class UpdateMessage extends Component {
         </NavBar>
         <ImagePicker
           files={this.state.files}
-          onChange={(files)=>{this.setState(files)}}
+          onChange={(files)=>{this.setState({files})}}
           selectable={this.state.files.length<1}
         />
         <WhiteSpace/>
@@ -60,7 +60,7 @@ export default class UpdateMessage extends Component {
                 Toast.fail(result.errorMeaage);
                 return;
               }
-              this.props.history.push('UpdatePersonScreen');
+              this.props.history.push('PersonScreen');
             }}
           >
             提交修改
