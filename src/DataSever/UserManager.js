@@ -13,8 +13,6 @@ class UserManager {
                 Phone,
                 pwd
             }
-            console.log(Customer);
-            console.log(loginURL);
             const res = await fetch(loginURL, {
                 method: 'POST',
                 headers: {
@@ -25,8 +23,9 @@ class UserManager {
             })
             const result = await res.json();
             console.log(result);
-            if (result.success === true) {
-                localStorage.token = result.data.token;
+            if (result.state === true) {
+                localStorage.token = result.token;
+                localStorage.uid = result.uid;
             }
             return result;
         } catch (error) {
@@ -53,8 +52,9 @@ class UserManager {
             });
 
             const result = await res.json();
-            if (result.success === true) {
-                localStorage.token = result.data.token;
+            if (result.state === true) {
+                localStorage.token = result.token;
+                localStorage.uid = result.uid;
             }
             return result;
         } catch (error) {
