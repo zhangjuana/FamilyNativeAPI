@@ -42,7 +42,7 @@ export default class UpdatePassWord extends Component {
             <InputItem
                 type={'text'}
                 value={this.state.Pwd}
-                onChange={(old_password)=>{this.setState({Pwd})}}
+                onChange={(Pwd)=>{this.setState({Pwd})}}
                 placeholder={'请输入旧密码'}
             >
                 旧密码
@@ -50,7 +50,7 @@ export default class UpdatePassWord extends Component {
             <InputItem
                 type={'text'}
                 value={this.state.newPwd}
-                onChange={(new_password)=>{this.setState({newPwd})}}
+                onChange={(newPwd)=>{this.setState({newPwd})}}
                 placeholder={'请输入新密码'}
             >
                 新密码
@@ -61,7 +61,7 @@ export default class UpdatePassWord extends Component {
             <Button
                 type={'primary'}
                 onClick={async()=>{
-                    const result = await accountManager.changePassword(this.state.Pwd,this.state.newPwd);
+                    const result = await UserManager.ChangePassword(this.state.Pwd,this.state.newPwd);
                     console.log(result);
                     if(result.success === false){
                         Toast.fail(result.errorMessage);

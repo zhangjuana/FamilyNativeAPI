@@ -1,7 +1,8 @@
 import {
     loginURL,
     registURL,
-    UpdateCustomerURL
+    UpdateCustomerURL,
+    ChangePasswordURL
 } from './URLConfig';
 
 class UserManager {
@@ -107,8 +108,8 @@ class UserManager {
                 formData.append("Pwd", newPwd);
             }
         
-            const res = await fetch(changePasswordURL, {
-                method: 'POST',
+            const res = await fetch(ChangePasswordURL, {
+                method: 'Put',
                 body: formData,
                 headers:{
                     'token':localStorage.token,
