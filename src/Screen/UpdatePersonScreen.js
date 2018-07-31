@@ -24,17 +24,17 @@ export default class UpdatePersonScreen extends Component {
     //     }
     //     this.setState({ user: result.data });
     // }
-    constructor(props) {
-        super(props)
+    // constructor(props) {
+    //     super(props)
 
-        this.state = {
-            user: {
-                nickname: '',
-                pwd: '',
-                image: ''
-            },
-        }
-    }
+    //     this.state = {
+    //         user: {
+    //             nickname: '',
+    //             pwd: '',
+    //             image: ''
+    //         },
+    //     }
+    // }
     render() {
         return (
             <div>
@@ -54,12 +54,16 @@ export default class UpdatePersonScreen extends Component {
                 <WhiteSpace/>
                 <WingBlank>
                     <Button
+                     onClick={()=>{
+                        this.props.history.push('UpdateMessage');
+                    }}
                     >
+                        
+                       
                         修改个人资料
                     </Button>
                     <WhiteSpace />
                     <Button
-
                     >
                         修改密码
                     </Button>
