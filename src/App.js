@@ -10,6 +10,7 @@ import RegisterScreen from './Screen/RegisterScreen';
 import PersonScreen from './Screen/PersonScreen';
 import UpdatePersonScreen   from './Screen/UpdatePersonScreen';
 import UpdateMessage from './Screen/UpdateMessage';
+import ReceivingAddress from './Screen/ReceivingAddress';
 class App extends Component {
   render() {
     return (
@@ -19,6 +20,7 @@ class App extends Component {
         <Route path={'/PersonScreen'} component={PersonScreen} />
         <Route path={'/UpdatePersonScreen'} component={UpdatePersonScreen} />
         <Route path={'/UpdateMessage'} component={UpdateMessage} />
+        <Route path={'/ReceivingAddress'} component={ReceivingAddress}/>
       </div>
     );
   }

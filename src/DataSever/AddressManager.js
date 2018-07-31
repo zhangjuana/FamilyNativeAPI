@@ -40,7 +40,7 @@ class AddressManager{
 
     }
 
- async UpadteAddress(CustomerID,Addressee,Phone,SaveCode,CityCode,AreaCode,Addresss){
+    async UpadteAddress(CustomerID,Addressee,Phone,SaveCode,CityCode,AreaCode,Addresss){
     try {
         const Address={
             CustomerID,
@@ -74,23 +74,20 @@ class AddressManager{
     }
 
     }
-    async SearchAddress(Addresss){
+
+    async SearchAddress(){
         try {
-            const Address={
-              token:localStorage.token,
-              Addresss
-            }
             const res =await fetch(SearchAddressURL,{
-                method:'POST',
+                method:'Get',
                 headers:{
                     'Accept':'application/json',
                     'Content-Type':'application/json',
                     'uid':localStorage.uid,
                     'token':localStorage.token
                 },
-                body: JSON.stringify(Address)
             });
             const result=await res.json();
+            console.log(result)
             return result;
         } catch (error) {
             return {
@@ -99,9 +96,9 @@ class AddressManager{
             }
         }
     
-        }
+    }
 
-        async DeleteAddress(id){
+    async DeleteAddress(id){
             try {
                 const Address={
                     token:localStorage.token,
@@ -129,5 +126,6 @@ class AddressManager{
                 }
             }
         
-            }
+    }
 }
+export default new AddressManager()

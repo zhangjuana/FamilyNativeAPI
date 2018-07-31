@@ -51,11 +51,13 @@ export default class LoginScreen extends Component {
                         type={'primary'}
                         onClick={async () => {
                             const result = await UserManager.login(this.state.Phone, this.state.pwd);
-                            console.log(result);
                             if (result.success === false) {
                                 Toast.fail(result.errorMessage);
                                 return;
+                            }else{
+                                this.props.history.push('/ReceivingAddress');
                             }
+                            
                         }}
                     >
                         登录
