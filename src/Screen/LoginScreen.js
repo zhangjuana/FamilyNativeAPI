@@ -56,7 +56,7 @@ export default class LoginScreen extends Component {
                                 Toast.fail(result.errorMessage);
                                 return;
                             }
-                            this.props.history.push('PersonScreen');
+                            this.props.history.push("TabBarScreen");
                         }}
                     >
                         登录

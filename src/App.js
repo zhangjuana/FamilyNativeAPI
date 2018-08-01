@@ -11,7 +11,8 @@ import PersonScreen from './Screen/PersonScreen';
 import UpdatePersonScreen   from './Screen/UpdatePersonScreen';
 import UpdateMessage from './Screen/UpdateMessage';
 import UpdatePassword from './Screen/UpdatePassword';
-
+import TabBarScreen from './Screen/TabBarScreen';
+import HomeScreen from './Screen/HomeScreen';
 class App extends Component {
   render() {
     return (
@@ -22,6 +23,8 @@ class App extends Component {
         <Route path={'/UpdatePersonScreen'} component={UpdatePersonScreen} />
         <Route path={'/UpdateMessage'} component={UpdateMessage} />
         <Route path={'/UpdatePassword'} component={UpdatePassword} />
+        <Route path={'/TabBarScreen'} component={TabBarScreen} />
+        <Route path={'/HomeScreen'} component={HomeScreen} />
       </div>
     );
   }
