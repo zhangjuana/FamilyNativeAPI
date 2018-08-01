@@ -5,6 +5,7 @@ import{
     BarSearchURL,
     SpecialSearchURL,
     HotSaleSearchURL,
+    SearchProductByTypeURL,
 } from './URLConfig';
 class ProductManager{
     //根据商品id查询详细信息
@@ -32,7 +33,7 @@ class ProductManager{
     //根据商品类别查询商品
     async SearchProduct(GoodsTypeID){
         try {
-            const res=await fetch(SearchProductURL,{
+            const res=await fetch(SearchProductByTypeURL+'?GoodsTypeID='+GoodsTypeID,{
                 method:"post",
                 headers:{
                     'Accept':'application/json',
@@ -40,7 +41,7 @@ class ProductManager{
                      'uid':localStorage.uid,
                      'token':localStorage.token
                 },
-                body:JSON.stringify(GoodsTypeID)
+                body:JSON.stringify()
             })
             const result=await res.json();
             return result;

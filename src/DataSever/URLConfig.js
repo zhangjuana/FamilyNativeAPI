@@ -13,6 +13,7 @@ const UpdateOrderMainURL = host+port+'/api/OrderMain/Update';
 const AddCommentURL = host+port+'/api/Comment/Add';
 const SearchGoodsTypeURL = host+port+'/api/GoodsType/Search';
 const SearchProductURL = host+port+'/api/Product/Search';
+const SearchProductByTypeURL = host+port+'/api/Product/SearchByType';
 const SearchByIDURL = host+port+'/api/Product/SearchByID';
 const BarSearchURL = host+port+'/api/Bar/Search';
 const SpecialSearchURL = host+port+'/api/Special/Search';
@@ -68,5 +69,6 @@ export {
     DeleteTrollerURL,
     SearchTrollerURL,
     ChangePasswordURL,
-    SearchCustomerURL
+    SearchCustomerURL,
+    SearchProductByTypeURL,
 }
